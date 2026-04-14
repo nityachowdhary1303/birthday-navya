@@ -2,78 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Birthday Countdown</title>
+  <title>Happy Birthday</title>
+
+  <!-- Cool Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       text-align: center;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      background: linear-gradient(to right, #e9d5ff, #c4b5fd);
       color: #fff;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 20px;
     }
 
     h1 {
       font-size: 3rem;
       margin-bottom: 10px;
+      font-weight: 700;
     }
 
     p {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      max-width: 600px;
+      font-weight: 300;
     }
 
     img {
       width: 220px;
       height: auto;
       border-radius: 15px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
-    #timer {
-      font-size: 2rem;
-      background: rgba(0,0,0,0.2);
-      padding: 20px 30px;
+    button {
+      padding: 12px 22px;
+      border: none;
       border-radius: 12px;
+      background: #6d28d9;
+      color: #ffffff;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #5b21b6;
+      transform: scale(1.05);
+    }
+
+    #secret {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      display: none;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
 
-  <h1>Birthday in just a few hours!!!! 🌮</h1>
-  <p>Bahut excited hu main!! Ab bas thodi der aur, and fir tu hojaegi mere se ek saal badi, kaisa lagega terko bada hoke! Oh i meant, boodha hoke! But haan jokes apart, I hope you have an amazing birthday bhai!! I hope ki you definitely have a lot of fun, and have the best timee!!!! I just hope ki I can make it special for you in every way I can!</p>
+  <h1>Happy Birthday Navya!! 🎉</h1>
 
-  <!-- Add your photo here -->
+  <p>
+    Bahut excited hu main!! Ab bas thodi der aur, and fir tu hojaegi mere se ek saal badi,
+    kaisa lagega terko bada hoke! Oh i meant, boodha hoke! But haan jokes apart,
+    I hope you have an amazing birthday bhai!! I hope ki you definitely have a lot of fun,
+    and have the best timee!!!! I just hope ki I can make it special for you in every way I can!
+  </p>
+
   <img src="photo.jpg" alt="Navya">
 
-  <div id="timer">Loading...</div>
+  <button onclick="showMessage()">
+    click kar gaandu, oh I meant mini gaandu 😌
+  </button>
+
+  <div id="secret">
+    I am so much grateful to have you 💛
+  </div>
 
   <script>
-    const birthday = new Date("April 15, 2026 00:00:00").getTime();
-
-    const timer = setInterval(function () {
-      const now = new Date().getTime();
-      const distance = birthday - now;
-
-      if (distance < 0) {
-        document.getElementById("timer").innerHTML = "🎂 It's her birthday today!";
-        document.querySelector("p").innerHTML = "Happiest Birthday Navya!! 💛🎉";
-        clearInterval(timer);
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / (1000 * 60)) % 60);
-      const seconds = Math.floor((distance / 1000) % 60);
-
-      document.getElementById("timer").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-    }, 1000);
+    function showMessage() {
+      document.getElementById("secret").style.display = "block";
+    }
   </script>
 
 </body>
